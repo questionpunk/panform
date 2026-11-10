@@ -1,0 +1,148 @@
+{
+  "formId": "1FAIpQLSdGx7Qk2c8vYbRk3cXq9TnW0mB4eH5uJ6kL7mN8oP9qR0sT",
+  "info": {
+    "title": "Car ownership survey",
+    "description": "Five minutes about the cars you have owned.",
+    "documentTitle": "Car ownership survey (2026)"
+  },
+  "settings": {
+    "quizSettings": {},
+    "emailCollectionType": "DO_NOT_COLLECT"
+  },
+  "revisionId": "00000012",
+  "responderUri": "https://docs.google.com/forms/d/e/1FAIpQLSdGx7Qk2c8vYbRk3cXq9TnW0mB4eH5uJ6kL7mN8oP9qR0sT/viewform",
+  "items": [
+    {
+      "itemId": "3f1a2b4c",
+      "title": "Do you own a car?",
+      "questionItem": {
+        "question": {
+          "questionId": "5d6e7f80",
+          "required": true,
+          "choiceQuestion": {
+            "type": "RADIO",
+            "options": [
+              { "value": "Yes" },
+              { "value": "No", "goToSectionId": "6a7b8c9d" }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "0a1b2c3d",
+      "title": "Where do you live?",
+      "description": "Pick the closest match.",
+      "questionItem": {
+        "question": {
+          "questionId": "1e2f3a4b",
+          "choiceQuestion": {
+            "type": "DROP_DOWN",
+            "options": [ { "value": "City" }, { "value": "Suburb" }, { "value": "Countryside" } ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "4b5c6d7e",
+      "title": "About your car",
+      "pageBreakItem": {}
+    },
+    {
+      "itemId": "2c3d4e5f",
+      "title": "Which brands have you owned?",
+      "questionItem": {
+        "question": {
+          "questionId": "7a8b9c0d",
+          "choiceQuestion": {
+            "type": "CHECKBOX",
+            "shuffle": true,
+            "options": [ { "value": "Toyota" }, { "value": "Ford" }, { "value": "Honda" }, { "isOther": true } ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "8e9f0a1b",
+      "title": "Rate your current car",
+      "questionGroupItem": {
+        "questions": [
+          { "questionId": "11aa22bb", "required": true, "rowQuestion": { "title": "Comfort" } },
+          { "questionId": "33cc44dd", "required": true, "rowQuestion": { "title": "Reliability" } }
+        ],
+        "grid": {
+          "columns": {
+            "type": "RADIO",
+            "options": [ { "value": "Poor" }, { "value": "Fair" }, { "value": "Good" } ]
+          }
+        }
+      }
+    },
+    {
+      "itemId": "9c8d7e6f",
+      "title": "How likely are you to buy the same brand again?",
+      "questionItem": {
+        "question": {
+          "questionId": "55ee66ff",
+          "scaleQuestion": { "low": 1, "high": 5, "lowLabel": "Not likely", "highLabel": "Very likely" }
+        }
+      }
+    },
+    {
+      "itemId": "a1b2c3d4",
+      "title": "How many stars would you give it?",
+      "questionItem": {
+        "question": {
+          "questionId": "77aa88bb",
+          "ratingQuestion": { "ratingScaleLevel": 5, "iconType": "STAR" }
+        }
+      }
+    },
+    {
+      "itemId": "b2c3d4e5",
+      "title": "When did you buy it?",
+      "questionItem": {
+        "question": {
+          "questionId": "99cc00dd",
+          "dateQuestion": { "includeYear": true }
+        }
+      }
+    },
+    {
+      "itemId": "c3d4e5f6",
+      "title": "How long is your daily commute?",
+      "questionItem": {
+        "question": {
+          "questionId": "12ab34cd",
+          "timeQuestion": { "duration": true }
+        }
+      }
+    },
+    {
+      "itemId": "d4e5f6a7",
+      "title": "Our showroom",
+      "imageItem": { "image": { "contentUri": "https://lh3.googleusercontent.com/showroom", "altText": "Showroom" } }
+    },
+    {
+      "itemId": "6a7b8c9d",
+      "title": "Final thoughts",
+      "pageBreakItem": {}
+    },
+    {
+      "itemId": "e5f6a7b8",
+      "title": "Thank you for taking part.",
+      "description": "Your answers are anonymous.",
+      "textItem": {}
+    },
+    {
+      "itemId": "f6a7b8c9",
+      "title": "Anything else?",
+      "questionItem": {
+        "question": {
+          "questionId": "56ef78ab",
+          "textQuestion": { "paragraph": true }
+        }
+      }
+    }
+  ]
+}

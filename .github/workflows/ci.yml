@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: haskell-actions/setup@v2
+        id: setup
+        with:
+          ghc-version: "9.10.3"
+          cabal-version: "3.16"
+
+      - name: Restore cabal store
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.setup.outputs.cabal-store }}
+          key: cabal-${{ runner.os }}-${{ hashFiles('cabal.project.freeze', 'panform.cabal') }}
+          restore-keys: cabal-${{ runner.os }}-
+
+      - name: Build (warnings are errors)
+        run: cabal build all --ghc-options=-Werror
+
+      - name: Test
+        run: cabal test all --test-show-details=direct
+
+      - name: Microsoft Forms importer (node)
+        run: node --test importers/msforms/import.test.mjs
+
+      - name: Audit matrix is current
+        run: |
+          cabal run -v0 panform -- --audit > docs/audit.md
+          git diff --exit-code docs/audit.md

@@ -1,0 +1,143 @@
+{
+  "id": "all-types",
+  "title": "Every question type",
+  "description": "Hand-built from the request bodies captured in the Dutchy365 and msforms-api sources (see SOURCE.md).",
+  "defaultLanguage": "en-us",
+  "localeList": [],
+  "descriptiveQuestions": [
+    {
+      "id": "r0section1",
+      "type": "Question.ColumnGroup",
+      "title": "About you",
+      "subtitle": null,
+      "order": 500500,
+      "questionInfo": null
+    },
+    {
+      "id": "r0section2",
+      "type": "Question.ColumnGroup",
+      "title": "Your experience",
+      "subtitle": "Only for customers",
+      "order": 5000500,
+      "questionInfo": null
+    }
+  ],
+  "questions": [
+    {
+      "id": "r0customer",
+      "type": "Question.Choice",
+      "title": "Are you a customer?",
+      "subtitle": null,
+      "required": true,
+      "order": 1000500,
+      "isQuiz": false,
+      "allowMultipleValues": null,
+      "questionInfo": "{\"Choices\":[{\"Description\":\"Yes\",\"IsGenerated\":true},{\"Description\":\"No\",\"IsGenerated\":true,\"BranchInfo\":{\"ToTheEnd\":true}}],\"ChoiceType\":1,\"AllowOtherAnswer\":false,\"OptionDisplayStyle\":\"ListAll\",\"ChoiceRestrictionType\":\"None\",\"ShowRatingLabel\":false}"
+    },
+    {
+      "id": "r0email",
+      "type": "Question.TextField",
+      "title": "Email address",
+      "required": false,
+      "order": 2000500,
+      "isQuiz": false,
+      "questionInfo": "{\"Multiline\":false,\"Validation\":{\"rule\":11}}"
+    },
+    {
+      "id": "r0tools",
+      "type": "Question.Choice",
+      "title": "Which tools do you use?",
+      "required": false,
+      "order": 3000500,
+      "isQuiz": false,
+      "allowMultipleValues": true,
+      "questionInfo": "{\"Choices\":[{\"Description\":\"Forms\"},{\"Description\":\"Excel\"}],\"ChoiceType\":2,\"AllowOtherAnswer\":true,\"OptionDisplayStyle\":\"ListAll\",\"ShuffleOptions\":false}"
+    },
+    {
+      "id": "r0visit",
+      "type": "Question.DateTime",
+      "title": "When did you last visit?",
+      "required": false,
+      "order": 4000500,
+      "isQuiz": false,
+      "questionInfo": "{\"Date\":true,\"Time\":false,\"ShuffleOptions\":false,\"ShowRatingLabel\":false,\"IsMathQuiz\":false}"
+    },
+    {
+      "id": "r0rating",
+      "type": "Question.Rating",
+      "title": "Rate the service",
+      "required": false,
+      "order": 6000500,
+      "isQuiz": false,
+      "questionInfo": "{\"Length\":5,\"RatingShape\":\"Star\",\"LeftDescription\":\"Poor\",\"RightDescription\":\"Great\",\"MinRating\":1,\"ShuffleOptions\":false,\"ShowRatingLabel\":false,\"IsMathQuiz\":false}"
+    },
+    {
+      "id": "r0nps",
+      "type": "Question.NPS",
+      "title": "How likely are you to recommend us to a friend or colleague?",
+      "required": false,
+      "order": 7000500,
+      "isQuiz": false,
+      "questionInfo": "{\"LeftDescription\":\"Not at all likely\",\"RightDescription\":\"Extremely likely\",\"ShuffleOptions\":false,\"ShowRatingLabel\":false,\"IsMathQuiz\":false}"
+    },
+    {
+      "id": "r0rank",
+      "type": "Question.Ranking",
+      "title": "Rank these features",
+      "required": false,
+      "order": 8000500,
+      "isQuiz": false,
+      "allowMultipleValues": true,
+      "questionInfo": "{\"ShuffleOptions\":false,\"ShowRatingLabel\":false,\"IsMathQuiz\":false}",
+      "choices": [
+        {"customProperties": "{\"IsGenerated\":true}", "displayText": "Uploads", "key": "87bc49ca-21aa-42ce-89bc-07296e64476b", "order": 2},
+        {"customProperties": "{\"IsGenerated\":true}", "displayText": "Branching", "key": "0d6772a8-ae78-4515-a3af-4233d2c46d45", "order": 1}
+      ]
+    },
+    {
+      "id": "r0likert",
+      "type": "Question.MatrixChoiceGroup",
+      "title": "How much do you agree?",
+      "required": true,
+      "order": 9000500,
+      "isQuiz": false,
+      "choices": [
+        {"displayText": "Disagree", "key": "disagree-key", "order": 1},
+        {"displayText": "Neutral", "key": "neutral-key", "order": 2},
+        {"displayText": "Agree", "key": "agree-key", "order": 3}
+      ]
+    },
+    {
+      "id": "r0likert1",
+      "type": "Question.MatrixChoice",
+      "title": "Forms is useful",
+      "groupId": "r0likert",
+      "order": 10000500
+    },
+    {
+      "id": "r0likert2",
+      "type": "Question.MatrixChoice",
+      "title": "Forms is fast",
+      "groupId": "r0likert",
+      "order": 11000500
+    },
+    {
+      "id": "r0upload",
+      "type": "Question.FileUpload",
+      "title": "Upload a screenshot",
+      "required": false,
+      "order": 12000500,
+      "isQuiz": false,
+      "questionInfo": "{\"HasSpecificFileType\":true,\"FileTypes\":{\"PDF\":true,\"Image\":true},\"MaxFileCount\":1,\"MaxFileSize\":10}"
+    },
+    {
+      "id": "r0comments",
+      "type": "Question.TextField",
+      "title": "Anything else?",
+      "required": false,
+      "order": 13000500,
+      "isQuiz": false,
+      "questionInfo": "{\"Multiline\":true,\"ShowRatingLabel\":false}"
+    }
+  ]
+}

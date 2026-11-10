@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-written for panform (MIT): a single-file QTI 2.1 test with seven original items, one per
+     interaction type (choice, multiple choice, text entry, extended text, slider, order, match),
+     each embedded in its assessmentItemRef, with a preCondition on the second item and a
+     branchRule on the slider. The image and object files it names do not exist. -->
+<assessmentTest xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1" identifier="qti-samples" title="QTI 2.1 interaction samples">
+	<testPart navigationMode="linear" submissionMode="individual" identifier="part1">
+		<assessmentSection identifier="sectionA" title="Kitchen basics" visible="true">
+			<assessmentItemRef identifier="choice" href="choice.xml">
+				<assessmentItem
+					identifier="choice" title="Salad Dressing" adaptive="false" timeDependent="false">
+					<responseDeclaration identifier="RESPONSE" cardinality="single" baseType="identifier">
+						<correctResponse>
+							<value>ChoiceA</value>
+						</correctResponse>
+					</responseDeclaration>
+					<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float">
+						<defaultValue>
+							<value>0</value>
+						</defaultValue>
+					</outcomeDeclaration>
+					<itemBody>
+						<p>You shook oil and vinegar together in a jar. Ten minutes later it looks like this.</p>
+						<p>
+							<img src="images/dressing-jar.png" alt="A jar with a yellow layer floating on a clear one"/>
+						</p>
+						<choiceInteraction responseIdentifier="RESPONSE" shuffle="false" maxChoices="1">
+							<prompt>What happened in the jar?</prompt>
+							<simpleChoice identifier="ChoiceA">The oil and the vinegar separated again.</simpleChoice>
+							<simpleChoice identifier="ChoiceB">The vinegar turned into oil.</simpleChoice>
+							<simpleChoice identifier="ChoiceC">The dressing went off.</simpleChoice>
+						</choiceInteraction>
+					</itemBody>
+					<responseProcessing
+						template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
+				</assessmentItem>
+			</assessmentItemRef>
+			<assessmentItemRef identifier="choiceMultiple" href="choiceMultiple.xml">
+				<preCondition>
+					<match>
+						<variable identifier="choice.RESPONSE"/>
+						<baseValue baseType="identifier">ChoiceA</baseValue>
+					</match>
+				</preCondition>
+				<assessmentItem
+					identifier="choiceMultiple" title="Plain Bread Dough" adaptive="false" timeDependent="false">
+					<responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="identifier">
+						<correctResponse>
+							<value>Fl</value>
+							<value>Ye</value>
+						</correctResponse>
+						<mapping lowerBound="0" upperBound="2" defaultValue="-2">
+							<mapEntry mapKey="Fl" mappedValue="1"/>
+							<mapEntry mapKey="Ye" mappedValue="1"/>
+							<mapEntry mapKey="Va" mappedValue="-1"/>
+						</mapping>
+					</responseDeclaration>
+					<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+					<itemBody>
+						<choiceInteraction responseIdentifier="RESPONSE" shuffle="true" maxChoices="0">
+							<prompt>Which of these go into a plain loaf of bread?</prompt>
+							<simpleChoice identifier="Fl" fixed="false">Flour</simpleChoice>
+							<simpleChoice identifier="Co" fixed="false">Cocoa</simpleChoice>
+							<simpleChoice identifier="Ge" fixed="false">Gelatine</simpleChoice>
+							<simpleChoice identifier="Ye" fixed="false">Yeast</simpleChoice>
+							<simpleChoice identifier="Ci" fixed="false">Cinnamon</simpleChoice>
+							<simpleChoice identifier="Va" fixed="false">Vanilla</simpleChoice>
+						</choiceInteraction>
+					</itemBody>
+					<responseProcessing
+						template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/map_response"/>
+				</assessmentItem>
+			</assessmentItemRef>
+		</assessmentSection>
+		<assessmentSection identifier="sectionB" title="In your own words" visible="true">
+			<assessmentItemRef identifier="textEntry" href="textEntry.xml">
+				<assessmentItem
+					identifier="textEntry" title="Sponge Cake Card" adaptive="false" timeDependent="false">
+					<responseDeclaration identifier="RESPONSE" cardinality="single" baseType="string">
+						<correctResponse>
+							<value>Flour</value>
+						</correctResponse>
+						<mapping defaultValue="0">
+							<mapEntry mapKey="Flour" mappedValue="1"/>
+							<mapEntry mapKey="flour" mappedValue="0.5"/>
+						</mapping>
+					</responseDeclaration>
+					<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+					<itemBody>
+						<p>One word has been rubbed off this recipe card for a sponge cake. Fill it in.</p>
+						<blockquote>
+							<p>Beat the eggs and sugar until pale<br/> then fold in the sifted
+									<textEntryInteraction responseIdentifier="RESPONSE" expectedLength="15"/>;<br/>
+								pour the batter into a lined tin<br/> and bake until a skewer comes out
+								clean.</p>
+						</blockquote>
+					</itemBody>
+					<responseProcessing
+						template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/map_response"/>
+				</assessmentItem>
+			</assessmentItemRef>
+			<assessmentItemRef identifier="extendedText" href="extendedText.xml">
+				<assessmentItem
+					identifier="extendedText" title="The Spice Shelf" adaptive="false" timeDependent="false">
+					<responseDeclaration identifier="RESPONSE" cardinality="single" baseType="string"/>
+					<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+					<itemBody>
+						<p>The picture shows the shelf above the cooker in a shared kitchen.</p>
+						<div>
+							<object type="image/png" data="images/spice-shelf.png">
+								<blockquote class="shelf">
+									<p>Front row: salt, two open bags of flour,<br/> a bottle of oil with no
+										lid. Back row: nine<br/> spice jars, four of them unlabelled.<br/>
+										On top: a box of matches<br/> and a tea towel.</p>
+								</blockquote>
+							</object>
+						</div>
+						<extendedTextInteraction responseIdentifier="RESPONSE" expectedLength="200">
+							<prompt>Say what you would change about this shelf and why. Write three or four sentences.</prompt>
+						</extendedTextInteraction>
+					</itemBody>
+				</assessmentItem>
+			</assessmentItemRef>
+			<assessmentItemRef identifier="slider" href="slider.xml">
+				<branchRule target="match">
+					<lt>
+						<variable identifier="slider.RESPONSE"/>
+						<baseValue baseType="integer">10</baseValue>
+					</lt>
+				</branchRule>
+				<assessmentItem
+					identifier="slider" title="Water in a Cucumber" adaptive="false" timeDependent="false">
+					<responseDeclaration identifier="RESPONSE" cardinality="single" baseType="integer">
+						<correctResponse>
+							<value>96</value>
+						</correctResponse>
+						<mapping defaultValue="0">
+							<mapEntry mapKey="92" mappedValue="0.5"/>
+							<mapEntry mapKey="93" mappedValue="0.5"/>
+							<mapEntry mapKey="94" mappedValue="1.0"/>
+							<mapEntry mapKey="95" mappedValue="1.0"/>
+							<mapEntry mapKey="96" mappedValue="1.0"/>
+							<mapEntry mapKey="97" mappedValue="1.0"/>
+							<mapEntry mapKey="98" mappedValue="0.5"/>
+						</mapping>
+					</responseDeclaration>
+					<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+					<itemBody>
+						<p>Cooks salt sliced cucumber before dressing it because the slices are
+							<i>mostly water</i>, and the salt draws some of it out. Leave a slice in a
+							warm oven overnight and only a <i>papery</i> wisp is left.</p>
+						<sliderInteraction responseIdentifier="RESPONSE" lowerBound="0" upperBound="100" step="1"
+							stepLabel="false">
+							<prompt>By weight, what percentage of a fresh cucumber do you think is
+								water?</prompt>
+						</sliderInteraction>
+					</itemBody>
+					<responseProcessing
+						template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/map_response"/>
+				</assessmentItem>
+			</assessmentItemRef>
+			<assessmentItemRef identifier="order" href="order.xml">
+				<assessmentItem
+					identifier="order" title="A Pot of Tea" adaptive="false" timeDependent="false">
+					<responseDeclaration identifier="RESPONSE" cardinality="ordered" baseType="identifier">
+						<correctResponse>
+							<value>StepC</value>
+							<value>StepA</value>
+							<value>StepB</value>
+						</correctResponse>
+					</responseDeclaration>
+					<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+					<itemBody>
+						<orderInteraction responseIdentifier="RESPONSE" shuffle="true">
+							<prompt>These three steps make a pot of tea, but they have been mixed up. Can you
+								put them back in the order you would do them?</prompt>
+							<simpleChoice identifier="StepA">Pour the water over the leaves</simpleChoice>
+							<simpleChoice identifier="StepB">Wait four minutes</simpleChoice>
+							<simpleChoice identifier="StepC" fixed="true">Boil the kettle</simpleChoice>
+						</orderInteraction>
+					</itemBody>
+					<responseProcessing
+						template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
+				</assessmentItem>
+			</assessmentItemRef>
+			<assessmentItemRef identifier="match" href="match.xml">
+				<assessmentItem
+					identifier="match" title="Tools and Jobs" adaptive="false" timeDependent="false">
+					<responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="directedPair">
+						<correctResponse>
+							<value>G P</value>
+							<value>W B</value>
+							<value>F B</value>
+							<value>L S</value>
+						</correctResponse>
+						<mapping defaultValue="0">
+							<mapEntry mapKey="G P" mappedValue="1"/>
+							<mapEntry mapKey="W B" mappedValue="0.5"/>
+							<mapEntry mapKey="F B" mappedValue="0.5"/>
+							<mapEntry mapKey="L S" mappedValue="1"/>
+						</mapping>
+					</responseDeclaration>
+					<outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float"/>
+					<itemBody>
+						<matchInteraction responseIdentifier="RESPONSE" shuffle="true" maxAssociations="4">
+							<prompt>Match each kitchen tool to the job it is made for:</prompt>
+							<simpleMatchSet>
+								<simpleAssociableChoice identifier="G" matchMax="1">Grater</simpleAssociableChoice>
+								<simpleAssociableChoice identifier="W" matchMax="1">Whisk</simpleAssociableChoice>
+								<simpleAssociableChoice identifier="F" matchMax="1">Fork</simpleAssociableChoice>
+								<simpleAssociableChoice identifier="L" matchMax="1"
+								>Ladle</simpleAssociableChoice>
+							</simpleMatchSet>
+							<simpleMatchSet>
+								<simpleAssociableChoice identifier="B" matchMax="4">Beating eggs and batter</simpleAssociableChoice>
+								<simpleAssociableChoice identifier="P" matchMax="4">Shredding cheese</simpleAssociableChoice>
+								<simpleAssociableChoice identifier="S" matchMax="4">Serving
+								soup</simpleAssociableChoice>
+							</simpleMatchSet>
+						</matchInteraction>
+					</itemBody>
+					<responseProcessing
+						template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/map_response"/>
+				</assessmentItem>
+			</assessmentItemRef>
+		</assessmentSection>
+	</testPart>
+</assessmentTest>

@@ -1,0 +1,63 @@
+' Hand-written from the documented mrScriptMetadata syntax (Unicom
+' Intelligence 7.5 reference: categorical, loop ... fields ... expand grid,
+' long, text, info, page, lcl areas) and IOM routing; not a real export.
+Metadata(en-US, Question, Label)
+    ESN lcl(es-ES, Question, Label);
+
+    Welcome "Welcome to the museum visitor survey." ESN: "Bienvenido a la encuesta de visitantes del museo." info;
+
+    Visited "Is this your first visit?" ESN: "¿Es su primera visita?" categorical [1..1]
+    {
+        Yes "Yes" ESN: "Sí",
+        No "No" ESN: "No"
+    };
+
+    Galleries "Which galleries did you visit?" categorical [1..]
+    {
+        Fossils "Fossils",
+        Dinosaurs "Dinosaurs",
+        Minerals "Minerals",
+        - "Other gallery" other,
+        None "None of these" exclusive
+    };
+
+    RatingLoop "How interested were you in the museum displays?" loop
+    {
+        Fossils "Fossils",
+        Dinosaurs "Dinosaurs"
+    } fields
+    (
+        Rating categorical [1..1]
+        {
+            _1 "Not at all interested",
+            _2 "Somewhat interested",
+            _3 "Very interested"
+        };
+    ) expand grid;
+
+    Age "How old are you?" long [16..99];
+    Spend "How much did you spend in the shop?" double [0..500];
+    Member "Are you a member?" boolean;
+    VisitDate "When did you visit?" date;
+    Comments "Any other comments?" text [..4000];
+    Region "Which region are you from?" style(Control(Type = "DropList")) categorical [1..1]
+    {
+        North "North", South "South", East "East", West "West"
+    };
+    AgeGroup "" text;
+
+    About "About you" page(Age, Spend, Member, VisitDate);
+End Metadata
+
+Routing(Web)
+    Welcome.Show()
+    Visited.Ask()
+    If Visited.ContainsAny({No}) Then
+        Galleries.Ask()
+        If Galleries.ContainsAny({Fossils, Dinosaurs}) Then RatingLoop.Ask()
+    End If
+    About.Ask()
+    Comments.MustAnswer = False
+    If Age > 64 Or Not IsEmpty(Comments) Then Comments.Ask()
+    Region.Ask()
+End Routing

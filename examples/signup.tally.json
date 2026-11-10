@@ -1,0 +1,48 @@
+{
+  "id": "wA1bCd",
+  "name": "Beta signup",
+  "status": "PUBLISHED",
+  "blocks": [
+    {"uuid": "0b1f7f0e-0000-4000-8000-000000000001", "type": "FORM_TITLE", "groupUuid": "0b1f7f0e-0000-4000-8000-000000000001", "groupType": "FORM_TITLE", "payload": {"title": "Beta signup", "html": "Beta signup"}},
+    {"uuid": "1a2b3c4d-0000-4000-8000-00000000000a", "type": "HIDDEN_FIELDS", "groupUuid": "1a2b3c4d-0000-4000-8000-00000000000a", "groupType": "HIDDEN_FIELDS", "payload": {"hiddenFields": [{"uuid": "1a2b3c4d-0000-4000-8000-00000000000b", "name": "ref"}]}},
+    {"uuid": "2c9d6b10-0000-4000-8000-000000000001", "type": "TITLE", "groupUuid": "2c9d6b10-0000-4000-8000-000000000001", "groupType": "QUESTION", "payload": {"html": "What's your email?"}},
+    {"uuid": "2c9d6b10-0000-4000-8000-000000000002", "type": "INPUT_EMAIL", "groupUuid": "2c9d6b10-0000-4000-8000-000000000002", "groupType": "INPUT_EMAIL", "payload": {"isRequired": true, "placeholder": "you@example.com"}},
+    {"uuid": "3d0e7c21-0000-4000-8000-000000000001", "type": "TITLE", "groupUuid": "3d0e7c21-0000-4000-8000-000000000001", "groupType": "QUESTION", "payload": {"html": "How big is your team?"}},
+    {"uuid": "3d0e7c21-0000-4000-8000-000000000002", "type": "MULTIPLE_CHOICE_OPTION", "groupUuid": "3d0e7c21-0000-4000-8000-000000000002", "groupType": "MULTIPLE_CHOICE", "payload": {"isRequired": true, "index": 0, "isFirst": true, "isLast": false, "text": "Just me", "name": "team_size"}},
+    {"uuid": "3d0e7c21-0000-4000-8000-000000000003", "type": "MULTIPLE_CHOICE_OPTION", "groupUuid": "3d0e7c21-0000-4000-8000-000000000002", "groupType": "MULTIPLE_CHOICE", "payload": {"isRequired": true, "index": 1, "isFirst": false, "isLast": false, "text": "2-10", "name": "team_size"}},
+    {"uuid": "3d0e7c21-0000-4000-8000-000000000004", "type": "MULTIPLE_CHOICE_OPTION", "groupUuid": "3d0e7c21-0000-4000-8000-000000000002", "groupType": "MULTIPLE_CHOICE", "payload": {"isRequired": true, "index": 2, "isFirst": false, "isLast": true, "text": "More than 10", "name": "team_size"}},
+    {"uuid": "4e1f8d32-0000-4000-8000-000000000001", "type": "CONDITIONAL_LOGIC", "groupUuid": "4e1f8d32-0000-4000-8000-000000000001", "groupType": "CONDITIONAL_LOGIC", "payload": {
+      "logicalOperator": "AND",
+      "conditionals": [
+        {"uuid": "4e1f8d32-0000-4000-8000-000000000002", "type": "SINGLE", "payload": {
+          "field": {"uuid": "3d0e7c21-0000-4000-8000-000000000002", "type": "INPUT_FIELD", "questionType": "MULTIPLE_CHOICE_OPTION", "blockGroupUuid": "3d0e7c21-0000-4000-8000-000000000002", "title": "How big is your team?"},
+          "comparison": "IS_NOT", "value": "3d0e7c21-0000-4000-8000-000000000003"}}
+      ],
+      "actions": [{"uuid": "4e1f8d32-0000-4000-8000-000000000003", "type": "SHOW_BLOCKS", "payload": {"showBlocks": ["5f209e43-0000-4000-8000-000000000001", "5f209e43-0000-4000-8000-000000000002"]}}]
+    }},
+    {"uuid": "5f209e43-0000-4000-8000-000000000001", "type": "TITLE", "groupUuid": "5f209e43-0000-4000-8000-000000000001", "groupType": "QUESTION", "payload": {"html": "Company name", "isHidden": true}},
+    {"uuid": "5f209e43-0000-4000-8000-000000000002", "type": "INPUT_TEXT", "groupUuid": "5f209e43-0000-4000-8000-000000000002", "groupType": "INPUT_TEXT", "payload": {"isRequired": false, "isHidden": true, "name": "company", "hasMaxCharacters": true, "maxCharacters": 80}},
+    {"uuid": "60318f54-0000-4000-8000-000000000001", "type": "CONDITIONAL_LOGIC", "groupUuid": "60318f54-0000-4000-8000-000000000001", "groupType": "CONDITIONAL_LOGIC", "payload": {
+      "logicalOperator": "AND",
+      "conditionals": [
+        {"uuid": "60318f54-0000-4000-8000-000000000002", "type": "SINGLE", "payload": {
+          "field": {"uuid": "3d0e7c21-0000-4000-8000-000000000002", "type": "INPUT_FIELD", "questionType": "MULTIPLE_CHOICE_OPTION", "blockGroupUuid": "3d0e7c21-0000-4000-8000-000000000002", "title": "How big is your team?"},
+          "comparison": "IS", "value": "3d0e7c21-0000-4000-8000-000000000002"}}
+      ],
+      "actions": [{"uuid": "60318f54-0000-4000-8000-000000000003", "type": "JUMP_TO_PAGE", "payload": {"jumpToPage": 3}}]
+    }},
+    {"uuid": "71409065-0000-4000-8000-000000000001", "type": "PAGE_BREAK", "groupUuid": "71409065-0000-4000-8000-000000000001", "groupType": "PAGE_BREAK", "payload": {"index": 0, "isFirst": true, "isLast": false, "name": "tools"}},
+    {"uuid": "71409065-0000-4000-8000-000000000002", "type": "HEADING_2", "groupUuid": "71409065-0000-4000-8000-000000000002", "groupType": "HEADING_2", "payload": {"html": "Your tools"}},
+    {"uuid": "8251a176-0000-4000-8000-000000000001", "type": "TITLE", "groupUuid": "8251a176-0000-4000-8000-000000000001", "groupType": "QUESTION", "payload": {"html": "Which tools do you use today?"}},
+    {"uuid": "8251a176-0000-4000-8000-000000000002", "type": "CHECKBOX", "groupUuid": "8251a176-0000-4000-8000-000000000002", "groupType": "CHECKBOXES", "payload": {"index": 0, "isFirst": true, "isLast": false, "text": "Google Forms", "name": "tools"}},
+    {"uuid": "8251a176-0000-4000-8000-000000000003", "type": "CHECKBOX", "groupUuid": "8251a176-0000-4000-8000-000000000002", "groupType": "CHECKBOXES", "payload": {"index": 1, "isFirst": false, "isLast": false, "text": "Typeform", "name": "tools"}},
+    {"uuid": "8251a176-0000-4000-8000-000000000004", "type": "CHECKBOX", "groupUuid": "8251a176-0000-4000-8000-000000000002", "groupType": "CHECKBOXES", "payload": {"index": 2, "isFirst": false, "isLast": true, "text": "Other", "isOtherOption": true, "name": "tools"}},
+    {"uuid": "9362b287-0000-4000-8000-000000000001", "type": "TITLE", "groupUuid": "9362b287-0000-4000-8000-000000000001", "groupType": "QUESTION", "payload": {"html": "How happy are you with them?"}},
+    {"uuid": "9362b287-0000-4000-8000-000000000002", "type": "LINEAR_SCALE", "groupUuid": "9362b287-0000-4000-8000-000000000002", "groupType": "LINEAR_SCALE", "payload": {"isRequired": false, "start": 1, "end": 7, "step": 1, "hasLeftLabel": true, "leftLabel": "Unhappy", "hasRightLabel": true, "rightLabel": "Delighted", "name": "happiness"}},
+    {"uuid": "a473c398-0000-4000-8000-000000000001", "type": "PAGE_BREAK", "groupUuid": "a473c398-0000-4000-8000-000000000001", "groupType": "PAGE_BREAK", "payload": {"index": 1, "isFirst": false, "isLast": true, "name": "wrapup"}},
+    {"uuid": "b584d4a9-0000-4000-8000-000000000001", "type": "TITLE", "groupUuid": "b584d4a9-0000-4000-8000-000000000001", "groupType": "QUESTION", "payload": {"html": "Rate our landing page"}},
+    {"uuid": "b584d4a9-0000-4000-8000-000000000002", "type": "RATING", "groupUuid": "b584d4a9-0000-4000-8000-000000000002", "groupType": "RATING", "payload": {"isRequired": true, "stars": 5, "name": "landing"}},
+    {"uuid": "c695e5ba-0000-4000-8000-000000000001", "type": "TEXT", "groupUuid": "c695e5ba-0000-4000-8000-000000000001", "groupType": "TEXT", "payload": {"html": "Thanks, we'll be in touch."}},
+    {"uuid": "d7a6f6cb-0000-4000-8000-000000000001", "type": "CAPTCHA", "groupUuid": "d7a6f6cb-0000-4000-8000-000000000001", "groupType": "CAPTCHA", "payload": {}}
+  ]
+}

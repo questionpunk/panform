@@ -1,0 +1,136 @@
+{
+  "id": "405851234",
+  "title": "Monkey pet survey",
+  "nickname": "pets-2026",
+  "language": "en",
+  "question_count": 8,
+  "page_count": 2,
+  "pages": [
+    {
+      "id": "36701101",
+      "title": "About you",
+      "description": "",
+      "position": 1,
+      "questions": [
+        {
+          "id": "81100001",
+          "position": 1,
+          "visible": true,
+          "family": "single_choice",
+          "subtype": "vertical",
+          "headings": [{"heading": "Which monkey would you rather have as a pet?"}],
+          "required": {"text": "This question requires an answer.", "type": "all", "amount": "0"},
+          "sorting": {"type": "random", "ignore_last": true},
+          "answers": {
+            "choices": [
+              {"id": "501", "position": 1, "visible": true, "text": "Capuchin"},
+              {"id": "502", "position": 2, "visible": true, "text": "Mandrill"}
+            ],
+            "other": {"id": "503", "visible": true, "is_answer_choice": true, "text": "Other (please specify)", "num_lines": 1, "num_chars": 50}
+          }
+        },
+        {
+          "id": "81100002",
+          "position": 2,
+          "visible": true,
+          "family": "multiple_choice",
+          "subtype": "vertical",
+          "headings": [{"heading": "Which snacks would you feed it?"}],
+          "answers": {
+            "choices": [
+              {"id": "511", "position": 1, "visible": true, "text": "Bananas"},
+              {"id": "512", "position": 2, "visible": true, "text": "Nuts"},
+              {"id": "513", "position": 3, "visible": true, "text": "Insects"}
+            ]
+          }
+        },
+        {
+          "id": "81100003",
+          "position": 3,
+          "visible": true,
+          "family": "open_ended",
+          "subtype": "single",
+          "headings": [{"heading": "How many hours a day could you spend with it?"}],
+          "validation": {"type": "integer", "text": "Please enter a whole number between 0 and 24.", "min": 0, "max": 24}
+        },
+        {
+          "id": "81100004",
+          "position": 4,
+          "visible": true,
+          "family": "datetime",
+          "subtype": "date_only",
+          "headings": [{"heading": "When could you adopt?"}],
+          "answers": {"rows": [{"id": "521", "position": 1, "visible": true, "text": "Date"}]}
+        }
+      ]
+    },
+    {
+      "id": "36701102",
+      "title": "Opinions",
+      "description": "Last page!",
+      "position": 2,
+      "questions": [
+        {
+          "id": "81100005",
+          "position": 1,
+          "visible": true,
+          "family": "matrix",
+          "subtype": "rating",
+          "forced_ranking": false,
+          "headings": [{"heading": "How much do you agree?"}],
+          "answers": {
+            "rows": [
+              {"id": "531", "position": 1, "visible": true, "text": "Monkeys are clever"},
+              {"id": "532", "position": 2, "visible": true, "text": "Monkeys are noisy"}
+            ],
+            "choices": [
+              {"id": "541", "position": 1, "visible": true, "text": "Disagree", "weight": 1},
+              {"id": "542", "position": 2, "visible": true, "text": "Neutral", "weight": 2},
+              {"id": "543", "position": 3, "visible": true, "text": "Agree", "weight": 3}
+            ]
+          }
+        },
+        {
+          "id": "81100006",
+          "position": 2,
+          "visible": true,
+          "family": "matrix",
+          "subtype": "rating",
+          "headings": [{"heading": "How likely are you to recommend a monkey to a friend?"}],
+          "answers": {
+            "rows": [{"id": "551", "position": 1, "visible": true, "text": ""}],
+            "choices": [
+              {"id": "560", "visible": true, "text": "Not at all likely - 0", "weight": 0},
+              {"id": "561", "visible": true, "text": "1", "weight": 1},
+              {"id": "562", "visible": true, "text": "2", "weight": 2},
+              {"id": "563", "visible": true, "text": "3", "weight": 3},
+              {"id": "564", "visible": true, "text": "4", "weight": 4},
+              {"id": "565", "visible": true, "text": "5", "weight": 5},
+              {"id": "566", "visible": true, "text": "6", "weight": 6},
+              {"id": "567", "visible": true, "text": "7", "weight": 7},
+              {"id": "568", "visible": true, "text": "8", "weight": 8},
+              {"id": "569", "visible": true, "text": "9", "weight": 9},
+              {"id": "570", "visible": true, "text": "Extremely likely - 10", "weight": 10}
+            ]
+          }
+        },
+        {
+          "id": "81100007",
+          "position": 3,
+          "visible": true,
+          "family": "open_ended",
+          "subtype": "essay",
+          "headings": [{"heading": "Anything else?"}]
+        },
+        {
+          "id": "81100008",
+          "position": 4,
+          "visible": false,
+          "family": "open_ended",
+          "subtype": "single",
+          "headings": [{"heading": "Deleted question"}]
+        }
+      ]
+    }
+  ]
+}

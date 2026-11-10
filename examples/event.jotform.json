@@ -1,0 +1,50 @@
+{
+  "properties": {
+    "id": "241234567890123",
+    "title": "Event registration",
+    "conditions": [
+      {
+        "id": "1680636101088",
+        "index": "0",
+        "link": "Any",
+        "priority": "0",
+        "type": "field",
+        "terms": "[{\"id\":\"term_0_1681424147963\",\"field\":\"4\",\"operator\":\"equals\",\"value\":\"Workshop\",\"isError\":false},{\"id\":\"term_1_1681424147963\",\"field\":\"4\",\"operator\":\"equals\",\"value\":\"Both\",\"isError\":false}]",
+        "action": "[{\"id\":\"action_0_1681424147963\",\"visibility\":\"Show\",\"isError\":false,\"field\":\"5\"}]"
+      },
+      {
+        "id": "1680636101099",
+        "index": "1",
+        "link": "All",
+        "priority": "1",
+        "type": "field",
+        "terms": [{"id": "term_0_1681424148000", "field": "8", "operator": "lessThan", "value": "3", "isError": false}],
+        "action": [{"id": "action_0_1681424148000", "visibility": "Show", "isError": false, "field": "9"}]
+      },
+      {
+        "id": "1680636101111",
+        "index": "2",
+        "link": "All",
+        "priority": "2",
+        "type": "page",
+        "terms": [{"id": "term_0_1681424149000", "field": "4", "operator": "equals", "value": "Talks"}],
+        "action": [{"id": "action_0_1681424149000", "skipTo": "page-3", "isError": false}]
+      }
+    ]
+  },
+  "questions": {
+    "1": {"qid": "1", "order": "1", "type": "control_head", "name": "header", "text": "Event registration", "headerType": "Large"},
+    "2": {"qid": "2", "order": "2", "type": "control_fullname", "name": "fullName", "text": "Full Name", "required": "Yes", "labelAlign": "Top", "sublabels": {"first": "First Name", "last": "Last Name"}},
+    "3": {"qid": "3", "order": "3", "type": "control_email", "name": "email", "text": "Email", "required": "Yes", "subLabel": "We send the ticket here"},
+    "4": {"qid": "4", "order": "4", "type": "control_radio", "name": "track", "text": "Which sessions will you attend?", "required": "Yes", "options": "Talks|Workshop|Both", "calcValues": "1|2|3", "labelAlign": "Top"},
+    "5": {"qid": "5", "order": "5", "type": "control_checkbox", "name": "workshops", "text": "Pick workshops", "required": "No", "options": "Haskell|Rust|Elm", "allowOther": "Yes", "otherText": "Something else"},
+    "6": {"qid": "6", "order": "6", "type": "control_pagebreak", "name": "feedback", "text": "Page Break"},
+    "7": {"qid": "7", "order": "7", "type": "control_head", "name": "feedbackHeader", "text": "Your feedback"},
+    "8": {"qid": "8", "order": "8", "type": "control_scale", "name": "overall", "text": "Overall, how was it?", "required": "No", "scaleFrom": "1", "scaleAmount": "5", "fromText": "Poor", "toText": "Great"},
+    "9": {"qid": "9", "order": "9", "type": "control_textarea", "name": "whatWentWrong", "text": "What went wrong?", "required": "No", "rows": "6", "cols": "40"},
+    "10": {"qid": "10", "order": "10", "type": "control_matrix", "name": "rateSpeakers", "text": "Rate the speakers", "mrows": "Alice|Bob", "mcolumns": "Bad|OK|Good", "inputType": "Radio Button"},
+    "11": {"qid": "11", "order": "11", "type": "control_number", "name": "age", "text": "Age", "minValue": "16", "maxValue": "99"},
+    "12": {"qid": "12", "order": "12", "type": "control_datetime", "name": "arrival", "text": "Arrival", "showTime": "Yes"},
+    "13": {"qid": "13", "order": "13", "type": "control_button", "name": "submit", "text": "Submit"}
+  }
+}

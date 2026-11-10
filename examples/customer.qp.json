@@ -1,0 +1,202 @@
+{
+  "survey_title": "Project tool feedback",
+  "survey_settings": {
+    "survey_description": "A 5-minute study about the project management tool your team uses.",
+    "welcome_screen_text": {
+      "title": "Help us understand how your team plans work",
+      "description": "It takes about 5 minutes. Your answers are anonymous.",
+      "buttonLabel": "Start"
+    },
+    "thank_screen_text": {
+      "title": "Thank you!",
+      "description": "Your answers help us build better tools."
+    }
+  },
+  "survey_items": [
+    {
+      "text": "Hi! We'd like to hear how your team plans and tracks work.",
+      "answer_type": "chat_message",
+      "required": false,
+      "itemDetails": { "action": "Let's go" }
+    },
+    {
+      "text": "Do you use a project management tool at work?",
+      "answer_type": "multiple_choice",
+      "internal_name": "uses_tool",
+      "required": true,
+      "itemDetails": {
+        "answer_options": ["Yes", "No"],
+        "multiple_selection": false,
+        "other_option": false,
+        "none_option": false
+      }
+    },
+    {
+      "text": "Thanks for your time! This study is for people who use a project management tool.",
+      "answer_type": "chat_message",
+      "required": false,
+      "itemDetails": { "endSurvey": true, "endSurveyOutcome": "screenout" }
+    },
+    {
+      "text": "Which tool does your team use most?",
+      "answer_type": "dropdown",
+      "internal_name": "tool",
+      "required": true,
+      "itemDetails": {
+        "answer_options": ["Asana", "Jira", "Linear", "Trello", "Monday.com"]
+      }
+    },
+    {
+      "text": "Which features do you use at least weekly?",
+      "answer_type": "multiple_choice",
+      "internal_name": "features",
+      "required": false,
+      "itemDetails": {
+        "answer_options": ["Boards", "Timelines", "Automations", "Reports"],
+        "multiple_selection": true,
+        "other_option": true,
+        "none_option": true,
+        "randomize_options": true
+      }
+    },
+    {
+      "text": "How satisfied are you with the tool overall?",
+      "answer_type": "opinion_scale",
+      "internal_name": "satisfaction",
+      "required": true,
+      "itemDetails": {
+        "min_value": 1,
+        "max_value": 5,
+        "min_value_label": "Very dissatisfied",
+        "max_value_label": "Very satisfied"
+      }
+    },
+    {
+      "text": "How would you rate its mobile app?",
+      "answer_type": "rating",
+      "internal_name": "mobile_rating",
+      "required": false,
+      "itemDetails": { "scale": 5, "shape": "star", "min_label": "Poor", "max_label": "Excellent" }
+    },
+    {
+      "text": "Rank these possible improvements, most wanted first.",
+      "answer_type": "ranking",
+      "internal_name": "improvements",
+      "required": false,
+      "itemDetails": {
+        "answer_options": ["Faster search", "Better reports", "Offline mode", "Cheaper plans"]
+      }
+    },
+    {
+      "text": "Which of these matters MOST and LEAST when you choose a tool?",
+      "answer_type": "max_diff",
+      "internal_name": "drivers",
+      "required": false,
+      "itemDetails": {
+        "answer_options": [
+          "Price",
+          "Ease of use",
+          "Integrations",
+          "Speed",
+          "Mobile app",
+          "Reporting",
+          "Security",
+          "Customer support"
+        ],
+        "items_per_set": 4,
+        "best_label": "Most important",
+        "worst_label": "Least important"
+      }
+    },
+    {
+      "text": "Tell us about the last time the tool got in your way.",
+      "answer_type": "ai_interview",
+      "internal_name": "pain_interview",
+      "required": false,
+      "itemDetails": {
+        "questionMode": "ai_decides",
+        "aiDecidesConfig": {
+          "minQuestions": 2,
+          "maxQuestions": 5,
+          "stoppingGuidance": "Stop once you understand the task, the obstacle and the workaround."
+        },
+        "avoidTopics": "Pricing negotiations"
+      }
+    },
+    {
+      "text": "How many people are on your team?",
+      "answer_type": "numeric",
+      "internal_name": "team_size",
+      "required": false,
+      "itemDetails": { "allow_floating": false, "min": 1, "max": 500 }
+    },
+    {
+      "text": "When did your team start using it?",
+      "answer_type": "date",
+      "internal_name": "adopted",
+      "required": false,
+      "itemDetails": { "include_time": false }
+    },
+    {
+      "text": "Optionally, upload a screenshot of your main board.",
+      "answer_type": "file_upload",
+      "internal_name": "board_shot",
+      "required": false,
+      "itemDetails": { "allowed_types": ["image"], "max_files": 1, "max_file_size_mb": 10 }
+    },
+    {
+      "text": "Can we email you about a follow-up interview?",
+      "answer_type": "email",
+      "internal_name": "email",
+      "required": false
+    }
+  ],
+  "survey_sections": [
+    { "title": "Screener", "item_indices": [1, 2, 3] },
+    { "title": "Your tool", "item_indices": [4, 5, 6, 7, 8, 9] },
+    { "title": "Deep dive", "item_indices": [10] },
+    { "title": "About your team", "item_indices": [11, 12, 13, 14] }
+  ],
+  "survey_logic": [
+    {
+      "source_question": 2,
+      "groups": [
+        {
+          "condition": "or",
+          "destination_question": 3,
+          "rules": [{ "type": "is_selected_option", "option_index": 1 }]
+        }
+      ],
+      "fallback_question": 4
+    }
+  ],
+  "survey_display_logic": [
+    {
+      "target_question": 8,
+      "container_condition": "or",
+      "groups": [
+        {
+          "source_question": 5,
+          "condition": "or",
+          "rules": [
+            { "type": "is_selected_option", "option_index": 0 },
+            { "type": "is_selected_option", "option_index": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "target_question": 10,
+      "container_condition": "or",
+      "groups": [
+        {
+          "source_question": 6,
+          "condition": "or",
+          "rules": [{ "type": "is_number_less", "value": 3 }]
+        }
+      ]
+    }
+  ],
+  "assistant_message": "Drafted a 14-question study with a screener.",
+  "edit_action": "add"
+}

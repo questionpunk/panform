@@ -1,0 +1,34 @@
+// Cars questionnaire in Moodle GIFT (syntax per docs.moodle.org/en/GIFT_format).
+// GIFT is a quiz format, so some items carry right answers.
+$CATEGORY: $course$/Cars
+
+::intro:: Please answer a few questions about your car.
+
+::own:: Do you own a car? {
+  =Yes #Great!
+  ~No
+}
+
+::brands:: Which brands have you owned? {
+  ~%33.33333%Ford
+  ~%33.33333%Toyota
+  ~%33.33333%Honda\: Civic
+}
+
+::comments:: [markdown]Any **comments**? {}
+
+::handbrake:: The handbrake keeps a parked car from rolling. {T}
+
+::count:: How many cars have you owned? {#0..20}
+
+::parts:: Match each part to its system {
+  =Brake pad -> Brakes
+  =Piston -> Engine
+  =Rotor -> Brakes
+}
+
+$CATEGORY: $course$/Trivia
+
+Which pedal slows the car down?{=Brake =The brake pedal}
+
+Most family cars carry {~two ~six =four} tyres on the road.

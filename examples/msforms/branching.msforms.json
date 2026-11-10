@@ -1,0 +1,54 @@
+{
+    "title": "Garden plot waiting list",
+    "description": "A yearly check that everyone on the list still wants a plot",
+    "descriptiveQuestions": [
+        {
+            "id": "p1",
+            "type": "Question.ColumnGroup",
+            "title": "Still interested?",
+            "subtitle": "One question decides whether we need anything else from you.",
+            "order": 500500
+        },
+        {
+            "id": "p2",
+            "type": "Question.ColumnGroup",
+            "title": "YOUR DETAILS",
+            "subtitle": "So we can find you on the list.",
+            "order": 1000500
+        },
+        {
+            "id": "p3",
+            "type": "Question.ColumnGroup",
+            "title": "YOUR PLOT",
+            "subtitle": "Tell us what you would like to grow on.",
+            "order": 2000500
+        }
+    ],
+    "questions": [
+        {
+            "id": "q1",
+            "type": "Question.Choice",
+            "title": "Do you still want a plot?",
+            "required": true,
+            "allowMultipleValues": null,
+            "order": 750500,
+            "questionInfo": "{\"Choices\":[{\"Description\":\"No, take me off the list\",\"BranchInfo\":{\"ToTheEnd\":true}},{\"Description\":\"Yes, keep my place\",\"BranchInfo\":{\"TargetQuestionId\":\"p2\"}}]}"
+        },
+        {
+            "id": "q2",
+            "type": "Question.TextField",
+            "title": "Name on the waiting list",
+            "required": true,
+            "order": 1500500,
+            "questionInfo": null
+        },
+        {
+            "id": "q3",
+            "type": "Question.Choice",
+            "title": "Plot size",
+            "required": true,
+            "order": 2500500,
+            "questionInfo": "{\"Choices\":[{\"Description\":\"Half plot\"},{\"Description\":\"Full plot\"}]}"
+        }
+    ]
+}

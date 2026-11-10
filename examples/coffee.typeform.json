@@ -1,0 +1,159 @@
+{
+  "id": "Xq9TnW0m",
+  "title": "Coffee habits",
+  "type": "form",
+  "settings": { "language": "en", "progress_bar": "proportion", "show_progress_bar": true, "is_public": true },
+  "hidden": ["source", "customer_id"],
+  "variables": { "score": 0 },
+  "welcome_screens": [
+    { "ref": "welcome", "title": "Tell us how you take your coffee", "properties": { "show_button": true, "button_text": "Start" } }
+  ],
+  "thankyou_screens": [
+    { "ref": "thanks", "title": "Thanks for your answers!", "properties": { "show_button": false, "share_icons": false } }
+  ],
+  "fields": [
+    {
+      "id": "nS2aVt8r",
+      "ref": "drinks_coffee",
+      "title": "Do you drink coffee?",
+      "type": "yes_no",
+      "validations": { "required": true }
+    },
+    {
+      "ref": "how_often",
+      "title": "How often do you drink coffee?",
+      "type": "multiple_choice",
+      "properties": {
+        "randomize": false,
+        "allow_multiple_selection": false,
+        "allow_other_choice": false,
+        "vertical_alignment": true,
+        "choices": [
+          { "ref": "daily", "label": "Every day" },
+          { "ref": "weekly", "label": "A few times a week" },
+          { "ref": "rarely", "label": "Rarely" }
+        ]
+      },
+      "validations": { "required": true }
+    },
+    {
+      "ref": "drinks",
+      "title": "Which drinks do you order?",
+      "type": "multiple_choice",
+      "properties": {
+        "description": "Choose all that apply.",
+        "allow_multiple_selection": true,
+        "allow_other_choice": true,
+        "choices": [
+          { "ref": "espresso", "label": "Espresso" },
+          { "ref": "latte", "label": "Latte" },
+          { "ref": "filter", "label": "Filter" }
+        ]
+      }
+    },
+    {
+      "ref": "cups",
+      "title": "How many cups a day?",
+      "type": "number",
+      "validations": { "required": false, "min_value": 1, "max_value": 20 }
+    },
+    {
+      "ref": "cafe",
+      "title": "About your favourite café",
+      "type": "group",
+      "properties": {
+        "button_text": "Continue",
+        "show_button": true,
+        "fields": [
+          { "ref": "cafe_name", "title": "What is it called?", "type": "short_text", "validations": { "max_length": 80 } },
+          {
+            "ref": "cafe_rating",
+            "title": "Rate it",
+            "type": "matrix",
+            "properties": {
+              "fields": [
+                { "ref": "cafe_rating_taste", "title": "Taste", "type": "multiple_choice",
+                  "properties": { "choices": [ { "ref": "bad", "label": "Bad" }, { "ref": "ok", "label": "OK" }, { "ref": "great", "label": "Great" } ] } },
+                { "ref": "cafe_rating_price", "title": "Price", "type": "multiple_choice",
+                  "properties": { "choices": [ { "ref": "bad", "label": "Bad" }, { "ref": "ok", "label": "OK" }, { "ref": "great", "label": "Great" } ] } }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "ref": "nps",
+      "title": "How likely are you to recommend your café to a friend?",
+      "type": "nps",
+      "properties": { "labels": { "left": "Not likely", "right": "Very likely" } }
+    },
+    {
+      "ref": "sweetness",
+      "title": "How sweet do you like it?",
+      "type": "opinion_scale",
+      "properties": { "steps": 5, "start_at_one": true, "labels": { "left": "Bitter", "center": "Balanced", "right": "Sweet" } }
+    },
+    {
+      "ref": "why_not",
+      "title": "Why don't you drink coffee?",
+      "type": "long_text"
+    },
+    {
+      "ref": "note_end",
+      "title": "Almost done.",
+      "type": "statement"
+    },
+    {
+      "ref": "email",
+      "title": "Your email, if you want the results",
+      "type": "email"
+    },
+    {
+      "ref": "pay",
+      "title": "Tip the barista",
+      "type": "payment",
+      "properties": { "currency": "USD", "price": { "type": "variable", "value": "price" } }
+    }
+  ],
+  "logic": [
+    {
+      "type": "field",
+      "ref": "drinks_coffee",
+      "actions": [
+        {
+          "action": "jump",
+          "details": { "to": { "type": "field", "value": "why_not" } },
+          "condition": { "op": "is", "vars": [ { "type": "field", "value": "drinks_coffee" }, { "type": "constant", "value": false } ] }
+        }
+      ]
+    },
+    {
+      "type": "field",
+      "ref": "how_often",
+      "actions": [
+        {
+          "action": "add",
+          "details": { "target": { "type": "variable", "value": "score" }, "value": { "type": "constant", "value": 2 } },
+          "condition": { "op": "is", "vars": [ { "type": "field", "value": "how_often" }, { "type": "choice", "value": "daily" } ] }
+        },
+        {
+          "action": "jump",
+          "details": { "to": { "type": "field", "value": "nps" } },
+          "condition": { "op": "is", "vars": [ { "type": "field", "value": "how_often" }, { "type": "choice", "value": "rarely" } ] }
+        }
+      ]
+    },
+    {
+      "type": "field",
+      "ref": "sweetness",
+      "actions": [
+        {
+          "action": "jump",
+          "details": { "to": { "type": "field", "value": "note_end" } },
+          "condition": { "op": "always", "vars": [] }
+        }
+      ]
+    }
+  ]
+}

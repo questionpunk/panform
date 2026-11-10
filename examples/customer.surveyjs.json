@@ -1,0 +1,30 @@
+{
+  "title": {"default": "Customer feedback", "fr": "Avis client"},
+  "pages": [
+    {
+      "name": "p1",
+      "elements": [
+        {"type": "radiogroup", "name": "used", "title": {"default": "Have you used our product?", "fr": "Avez-vous utilisé notre produit ?"}, "isRequired": true,
+         "choices": [{"value": "yes", "text": {"default": "Yes", "fr": "Oui"}}, {"value": "no", "text": {"default": "No", "fr": "Non"}}]},
+        {"type": "checkbox", "name": "features", "title": "Which features do you use?", "visibleIf": "{used} = 'yes'",
+         "choices": ["reports", "exports", "api"], "showOtherItem": true, "showNoneItem": true},
+        {"type": "text", "name": "api_lang", "title": "Which language do you call the API from?", "visibleIf": "{features} contains 'api'"}
+      ]
+    },
+    {
+      "name": "p2",
+      "title": "Satisfaction",
+      "visibleIf": "{used} = 'yes'",
+      "elements": [
+        {"type": "matrix", "name": "sat", "title": "How satisfied are you with...",
+         "rows": [{"value": "speed", "text": "Speed"}, {"value": "price", "text": "Price"}],
+         "columns": [{"value": 1, "text": "Unhappy"}, {"value": 2, "text": "Neutral"}, {"value": 3, "text": "Happy"}]},
+        {"type": "rating", "name": "nps", "title": "How likely are you to recommend us?", "rateMin": 0, "rateMax": 10,
+         "minRateDescription": "Not likely", "maxRateDescription": "Very likely"},
+        {"type": "text", "inputType": "number", "name": "age", "title": "Age",
+         "validators": [{"type": "numeric", "minValue": 18, "maxValue": 120, "text": "Must be 18-120"}]},
+        {"type": "comment", "name": "why", "title": "Why?", "visibleIf": "{nps} <= 6 and {nps} notempty"}
+      ]
+    }
+  ]
+}

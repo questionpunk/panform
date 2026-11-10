@@ -1,0 +1,139 @@
+cabal-version:      3.0
+name:               panform
+version:            0.1.0.0
+synopsis:           A universal converter between form and survey definition formats
+description:
+  Like pandoc, but for forms and questionnaires: read a form in one format
+  (Qualtrics QSF, SurveyJS, XLSForm, REDCap, ...) into a common AST and
+  write it out in another. Every reader and writer is a pure function.
+license:            MIT
+license-file:       LICENSE
+author:             Jake Bialer
+maintainer:         jake@questionpunk.com
+category:           Text
+build-type:         Simple
+tested-with:        GHC == 9.10.3
+extra-doc-files:    README.md
+
+common shared
+  default-language: GHC2021
+  default-extensions: OverloadedStrings LambdaCase
+  ghc-options:      -Wall -Wno-name-shadowing
+
+library
+  import:           shared
+  hs-source-dirs:   src
+  exposed-modules:
+    Panform.AST
+    Panform.Bdd
+    Panform.Conv
+    Panform.Expr
+    Panform.Json
+    Panform.Csv
+    Panform.Xlsx
+    Panform.Format.Native
+    Panform.Format.SurveyJS
+    Panform.Format.XLSForm
+    Panform.Format.REDCap
+    Panform.ChoiceLogic
+    Panform.Format.Decipher
+    Panform.Format.MrScript
+    Panform.Format.Blaise
+    Panform.Jump
+    Panform.Format.Formbricks
+    Panform.Format.SurveyMonkey
+    Panform.Format.Jotform
+    Panform.Format.Tally
+    Panform.Format.GoogleForms
+    Panform.Format.Typeform
+    Panform.Format.TextUtil
+    Panform.Format.Gift
+    Panform.Format.Aiken
+    Panform.Format.Markdown
+    Panform.Format.Html
+    Panform.Format.JsPsych
+    Panform.Format.SurveyDown
+    Panform.Format.XForm
+    Panform.Format.FHIR
+    Panform.Format.Qualtrics
+    Panform.Format.QualtricsTxt
+    Panform.Format.LimeSurvey
+    Panform.Format.LimeSurveyLss
+    Panform.Format.LimeSurveyTsv
+    Panform.Formats
+    Panform.Design
+    Panform.XmlKit
+    Panform.Format.Codebook
+    Panform.Format.TripleS
+    Panform.Format.DDI
+    Panform.Format.Spss
+    Panform.Format.ODM
+    Panform.Format.QTI
+    Panform.Audit
+    Panform.Expr.QP
+    Panform.Expr.Simplify
+    Panform.Format.QuestionPunk
+    Panform.Format.MSForms
+    Panform.Format.QuestionPunkJson
+  build-depends:
+    , base >=4.16 && <5
+    , aeson >=2.0
+    , aeson-pretty
+    , bytestring
+    , containers
+    , text >=2.0
+    , mtl
+    , megaparsec >=9
+    , parser-combinators
+    , cassava
+    , vector
+    , xml-conduit
+    , scientific
+    , zip-archive
+
+executable panform
+  import:           shared
+  hs-source-dirs:   app
+  main-is:          Main.hs
+  build-depends:
+    , base
+    , panform
+    , bytestring
+    , text
+    , optparse-applicative
+    , filepath
+
+test-suite spec
+  import:           shared
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:   test
+  main-is:          Spec.hs
+  other-modules:    ReviewQP, ReviewA, ReviewC, ReviewB
+  build-depends:
+    , base
+    , panform
+    , bytestring
+    , containers
+    , text
+    , aeson
+    , tasty
+    , tasty-hunit
+    , tasty-quickcheck
+    , QuickCheck
+    , directory
+    , filepath
+
+test-suite corpus
+  import:           shared
+  type:             exitcode-stdio-1.0
+  hs-source-dirs:   test
+  main-is:          Corpus.hs
+  ghc-options:      -threaded -rtsopts
+  build-depends:
+    , base
+    , panform
+    , bytestring
+    , containers
+    , text
+    , directory
+    , filepath

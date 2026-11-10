@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-written from documented Decipher XML conventions (element types,
+     row/col/choice cells, cond, optional, exclusive/open, suspend, block);
+     not an export from a live Forsta account. -->
+<survey alt="Coffee brand tracker"
+    autosave="0"
+    compat="138"
+    name="Survey"
+    ss:disableBackButton="1"
+    state="testing"
+    xmlns:builder="http://decipherinc.com/builder"
+    xmlns:ss="http://decipherinc.com/ss">
+
+<samplesources default="0">
+  <samplesource list="0" title="default">
+    <exit cond="qualified">Thank you for taking our survey.</exit>
+  </samplesource>
+</samplesources>
+
+<html label="intro" where="survey">Thanks for helping us with this short survey about coffee.</html>
+
+<radio label="S1">
+  <title>Do you drink coffee at least once a week?</title>
+  <comment>Please select one</comment>
+  <row label="r1">Yes</row>
+  <row label="r2">No</row>
+</radio>
+
+<suspend/>
+
+<block label="coffee" builder:title="Coffee habits" cond="S1.r1">
+  <checkbox label="Q1" atleast="1">
+    <title>Which of these brands have you bought in the past month?</title>
+    <comment>Please select all that apply</comment>
+    <row label="r1">Blue Bottle</row>
+    <row label="r2">Lavazza</row>
+    <row label="r3">Starbucks</row>
+    <row label="r97" open="1" openSize="25" randomize="0">Other (specify)</row>
+    <row label="r98" exclusive="1" randomize="0">None of these</row>
+  </checkbox>
+
+  <select label="Q2" optional="0">
+    <title>Which brand do you buy most often?</title>
+    <choice label="ch1">Blue Bottle</choice>
+    <choice label="ch2">Lavazza</choice>
+    <choice label="ch3">Starbucks</choice>
+  </select>
+
+  <radio label="Q3" type="rating">
+    <title>How would you rate each brand?</title>
+    <comment>Please select one for each row</comment>
+    <row label="r1">Blue Bottle</row>
+    <row label="r2">Lavazza</row>
+    <col label="c1" value="1">Poor</col>
+    <col label="c2" value="2">Fair</col>
+    <col label="c3" value="3">Good</col>
+  </radio>
+
+  <number label="Q4" size="3" verify="range(0,50)">
+    <title>How many cups do you drink in a typical week?</title>
+    <comment>Please enter a whole number</comment>
+  </number>
+
+  <textarea label="Q5" optional="1" cond="Q1.r3 and Q4.val &gt; 10">
+    <title>What do you like about Starbucks?</title>
+  </textarea>
+
+  <text label="hCups" where="execute"/>
+  <exec>hCups.val = Q4.val * 4</exec>
+</block>
+
+<suspend/>
+
+<text label="Q6" optional="1" verify="email">
+  <title>Leave your email if you would like the results.</title>
+</text>
+
+</survey>

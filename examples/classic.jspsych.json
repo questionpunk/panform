@@ -1,0 +1,29 @@
+{
+  "timeline": [
+    {
+      "type": "jsPsychSurveyMultiChoice",
+      "preamble": "About you",
+      "questions": [
+        {"prompt": "Do you own a car?", "name": "q1", "options": ["Yes", "No"], "required": true},
+        {"prompt": "Which is your favourite colour?", "name": "colour", "options": ["Red", "Green", "Blue"], "horizontal": true}
+      ]
+    },
+    {
+      "type": "jsPsychSurveyMultiSelect",
+      "questions": [{"prompt": "Which brands have you owned?", "name": "q2", "options": ["A", "B", "C"]}]
+    },
+    {
+      "type": "jsPsychSurveyText",
+      "questions": [{"prompt": "Any comments?", "name": "q3", "rows": 5, "placeholder": "Type here"}]
+    },
+    {
+      "type": "jsPsychSurveyLikert",
+      "preamble": "Rate these",
+      "questions": [
+        {"prompt": "Price", "name": "r1", "labels": ["Disagree", "Neutral", "Agree"]},
+        {"prompt": "Quality", "name": "r2", "labels": ["Disagree", "Neutral", "Agree"], "required": true}
+      ]
+    },
+    {"type": "jsPsychHtmlKeyboardResponse", "stimulus": "Thanks!"}
+  ]
+}

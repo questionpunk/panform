@@ -1,0 +1,55 @@
+{ Hand-written for panform as original content. It exercises Blaise 4
+  syntax: enumerations with codes, SET OF, ranges, OPEN, DATETYPE,
+  LANGUAGES with parallel texts, AUXFIELDS, IF rules and a CHECK.
+  Not an official Statistics Netherlands model. }
+DATAMODEL Commute "Staff travel and parking survey"
+
+LANGUAGES = ENG "English", NED "Nederlands"
+
+TYPE
+  TYesNo = (Yes "Yes" "Ja", No "No" "Nee")
+
+AUXFIELDS
+  Intro "Your answers help us plan parking and bike storage." "Uw antwoorden helpen ons bij het plannen van parkeerplaatsen en fietsenstalling." : STRING[1], EMPTY
+
+FIELDS
+  Nickname "What should we call you?" "Hoe mogen we u noemen?" : STRING[20]
+  Site     "Which building do you work in?" : (North, South)
+  Tenure   (Q3) "How many full years have you worked here?" / "Years of service" : 0..60
+  OnSite   "Do you come to the office at least once a week?" : TYesNo
+  Modes    "Which of these do you use on an office day?" : SET [3] OF
+           (HomeDay (0) "None, I stay at home that day",
+            Bus         "Bus or coach",
+            Bike        "Bicycle or e-bike",
+            Car     (4) "Car, alone or shared",
+            Rail        "Tram or train",
+            Foot        "On foot",
+            Another (9) "Something not listed here")
+  Minutes  "About how many minutes does the trip take door to door?" : 0.0..300.0, EMPTY
+  Permits  "How many parking permits does your household hold?" : 0..10
+  Started  "On what date did you start in your current team?" : DATETYPE
+  Remarks  "Is there anything about your trip we should know?" : OPEN, EMPTY
+  TenureBand : STRING[10]
+
+RULES
+  Intro
+  Nickname
+  Site
+  Tenure
+  Started
+  IF Tenure >= 1 THEN
+    OnSite
+    IF OnSite = Yes THEN
+      Modes
+      IF (Bike IN Modes) OR (Car IN Modes) THEN
+        Minutes
+      ENDIF
+    ENDIF
+  ENDIF
+  IF (Site = South) AND (Tenure >= 2) THEN
+    Permits
+  ENDIF
+  CHECK
+  Tenure <= 60 "Years of service is out of range"
+  Remarks
+ENDMODEL

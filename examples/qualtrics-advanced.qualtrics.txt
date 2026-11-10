@@ -1,0 +1,101 @@
+[[AdvancedFormat]]
+
+[[ED:Branch]]
+[[ED:Channel]]
+[[ED:Returning:1]]
+
+[[Block:Your visit]]
+
+[[Question:MC:Dropdown]]
+Which of our cafes did you visit?
+[[Choices]]
+Harbour Road
+Station Square
+Market Lane
+
+[[Question:MC:Select]]
+What time of day was it?
+[[Choices]]
+Before ten
+Around midday
+After three
+
+[[Question:MC:MultiSelect]]
+What did you order?
+[[Choices]]
+A hot drink
+A cold drink
+Something to eat
+
+[[Question:MC:SingleAnswer:Horizontal]]
+Did you sit in or take away?
+[[Choices]]
+Sat in
+Took away
+A bit of both
+
+[[Question:MC:MultipleAnswer:Horizontal]]
+Who was with you?
+[[Choices]]
+Nobody
+Friends or family
+People from work
+
+[[Question:TE:Form]]
+If you would like a reply from the manager, leave your details here:
+[[Choices]]
+Name on the order
+Email address
+
+[[Block]]
+
+[[Question:MC]]
+[[ID:q1]]
+How did you first find out about us?
+
+[[AdvancedChoices]]
+[[Choice:1]]
+I walked past
+[[Choice:2]]
+Someone I know told me
+[[Choice:99]]
+Another way,
+such as a map or a review
+
+[[PageBreak]]
+
+[[Question:Matrix]]
+How true was each of these on your visit?
+[[Choices]]
+The queue moved quickly
+My order was right
+My table was clean
+[[AdvancedAnswers]]
+[[Answer]]
+Not true
+[[Answer]]
+Partly true
+[[Answer:5]]
+True
+
+[[Question:TE:SingleLine]]
+[[ID:name]]
+Which member of staff served you, if you remember?
+
+[[Question:TE:Essay]]
+What would have made the visit better?
+
+[[Question:RO]]
+Put these in order of how much they matter to you.
+[[Choices]]
+Price
+Taste
+
+[[Question:CS]]
+Share 100 points between the two.
+[[Choices]]
+Drinks
+Food
+
+[[Question:Text]]
+Thanks for telling us about your visit.

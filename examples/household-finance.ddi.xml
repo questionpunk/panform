@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-written for panform (MIT). An invented study in the layout a NADA catalog exports as DDI Codebook 2.5: a study description, one file and eight variables. No real survey, organisation or respondent is described. -->
+<codeBook version="2.5" ID="MHM_2026_v01" xml-lang="en" xmlns="ddi:codebook:2_5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="ddi:codebook:2_5 https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/codebook.xsd">
+<docDscr>
+  <citation>
+    <titlStmt>
+      <IDNo>DDI_MHM_2026_v01</IDNo>
+      <titl>MHM_2026_v01</titl>
+    </titlStmt>
+    <prodStmt>
+      <producer abbr="" affiliation="Millbrook Neighbourhood Research Group" role="Documentation of the study">Survey Documentation Desk</producer>
+      <prodDate date="2026-03-02">2026-03-02</prodDate>
+      <software version="v5">NADA</software>
+    </prodStmt>
+    <verStmt>
+      <version>Version 01 (2026-03-02)</version>
+    </verStmt>
+  </citation>
+</docDscr>
+<stdyDscr>
+  <citation>
+    <titlStmt>
+      <titl>Millbrook Household Money Habits Survey 2026</titl>
+      <subTitl/>
+      <altTitl>MHM 2026</altTitl>
+      <parTitl/>
+      <IDNo>MHM_2026_v01</IDNo>
+    </titlStmt>
+    <rspStmt>
+      <AuthEnty affiliation="Millbrook Neighbourhood Research Group">Household Studies Team</AuthEnty>
+    </rspStmt>
+    <prodStmt>
+      <producer abbr="" affiliation="" role="Ran the doorstep interviews.">Millbrook Field Volunteers</producer>
+      <copyright/>
+      <software version="beta" date="2026-03-01">MetadataEditor</software>
+      <prodDate/>
+      <prodPlac/>
+      <fundAg abbr="" role="Printing and travel costs">Millbrook Residents' Fund</fundAg>
+      <grantNo/>
+    </prodStmt>
+    <distStmt>
+      <contact affiliation="Millbrook Neighbourhood Research Group" URI="" email="surveys@example.com">Household Studies Team</contact>
+      <depositr abbr="" affiliation="" URI="">Millbrook Neighbourhood Research Group</depositr>
+      <depDate date=""/>
+      <distDate date=""/>
+    </distStmt>
+    <serStmt>
+      <serName>Town household surveys</serName>
+      <serInfo><![CDATA[The Money Habits Survey is a small yearly survey of how households in one town keep, move and set aside money. This is its first round.]]></serInfo>
+    </serStmt>
+    <verStmt>
+      <version date="2026-02-20">Edited file with names and addresses removed.</version>
+      <verResp/>
+      <notes><![CDATA[Version 01 is the first release. Two variables on cash kept at home were added after the pilot: save2 and cash1.]]></notes>
+    </verStmt>
+    <biblCit format=""><![CDATA[]]></biblCit>
+    <notes><![CDATA[]]></notes>
+  </citation>
+  <studyAuthorization date="">
+    <authorizationStatement><![CDATA[]]></authorizationStatement>
+  </studyAuthorization>
+  <stdyInfo>
+    <studyBudget><![CDATA[]]></studyBudget>
+    <subject>
+    </subject>
+    <abstract><![CDATA[The Millbrook Household Money Habits Survey asks one adult in each sampled household how the household holds its money: whether anyone has a current account, how often pay and bills go through it, and how much is still handled in cash.
+
+The 2026 round is the first. It covers 400 households in the five districts of the town and was carried out on the doorstep by trained volunteers during January and February.
+
+The file is meant for neighbourhood groups, the local credit union and anyone planning money advice sessions in the town.]]></abstract>
+    <sumDscr>
+      <collDate date="2026-01-12 " event="start" cycle=""/>
+      <collDate date="2026-02-13 " event="end" cycle=""/>
+      <nation abbr="">Not a real country</nation>
+      <geogCover>One town, all five districts</geogCover>
+      <geogCoverNote/>
+      <geogUnit/>
+      <anlyUnit><![CDATA[Household]]></anlyUnit>
+      <universe><![CDATA[Households with at least one resident aged 18 or over.]]></universe>
+      <dataKind>Survey answers, one row per household</dataKind>
+    </sumDscr>
+    <qualityStatement>
+      <standardsCompliance>
+        <complianceDescription/>
+      </standardsCompliance>
+      <otherQualityStatement/>
+    </qualityStatement>
+    <notes><![CDATA[]]></notes>
+    <exPostEvaluation completionDate="" type="">
+      <evaluationProcess/>
+      <outcomes/>
+    </exPostEvaluation>
+  </stdyInfo>
+  <method>
+    <dataColl>
+      <timeMeth/>
+      <frequenc/>
+      <sampProc><![CDATA[Eighty addresses were drawn at random from the street list of each district. A volunteer called at each address up to three times on different days. Where nobody answered after the third call, the next address on the same street was used instead.
+
+In each household the volunteer asked to speak to the adult who pays most of the bills. If that person was out, any other adult could answer.]]></sampProc>
+      <sampleFrame>
+        <sampleFrameName/>
+        <custodian/>
+        <universe/>
+        <frameUnit isPrimary="">
+          <unitType numberOfUnits=""/>
+        </frameUnit>
+        <updateProcedure/>
+      </sampleFrame>
+      <deviat/>
+      <resInstru><![CDATA[A two-page paper questionnaire in English, read aloud by the volunteer.]]></resInstru>
+      <instrumentDevelopment type=""/>
+      <collSitu><![CDATA[]]></collSitu>
+      <actMin><![CDATA[]]></actMin>
+      <ConOps><![CDATA[]]></ConOps>
+      <weight><![CDATA[Each district has the same number of interviews, so answers are weighted by the number of households in the district before town-wide figures are worked out.]]></weight>
+      <cleanOps><![CDATA[]]></cleanOps>
+    </dataColl>
+    <notes><![CDATA[]]></notes>
+    <anlyInfo>
+      <respRate><![CDATA[]]></respRate>
+      <EstSmpErr><![CDATA[With 400 households the margin of error for a town-wide percentage is about five points either way. District figures rest on 80 households each and are much less precise.]]></EstSmpErr>
+      <dataAppr><![CDATA[]]></dataAppr>
+    </anlyInfo>
+    <stdyClas><![CDATA[]]></stdyClas>
+  </method>
+  <dataAccs>
+    <setAvail>
+      <accsPlac URI=""/>
+      <origArch/>
+      <avlStatus/>
+      <collSize/>
+      <complete/>
+      <fileQnty/>
+      <notes><![CDATA[]]></notes>
+    </setAvail>
+    <useStmt>
+      <confDec required="" formNo="" URI=""/>
+      <restrctn/>
+      <contact affiliation="Millbrook Neighbourhood Research Group" URI="" email="">Household Studies Team</contact>
+      <citReq><![CDATA[Please name the survey, its year and the group that ran it when you use these figures, for example: Millbrook Neighbourhood Research Group, Household Money Habits Survey 2026 (MHM_2026_v01).]]></citReq>
+      <deposReq><![CDATA[]]></deposReq>
+      <conditions><![CDATA[]]></conditions>
+      <disclaimer><![CDATA[The group that collected these answers is not responsible for conclusions other people draw from them.]]></disclaimer>
+    </useStmt>
+    <notes><![CDATA[]]></notes>
+  </dataAccs>
+  <notes><![CDATA[]]></notes>
+</stdyDscr>
+<fileDscr ID="F1">
+  <fileTxt>
+    <fileName>Millbrook_Money_Habits_2026_households</fileName>
+    <fileCont>2026 Money Habits Survey - household file</fileCont>
+    <dimensns>
+      <caseQnty>400</caseQnty>
+      <varQnty>8</varQnty>
+    </dimensns>
+    <dataChck></dataChck>
+    <dataMsng></dataMsng>
+    <verStmt>
+      <version></version>
+    </verStmt>
+  </fileTxt>
+  <notes></notes>
+</fileDscr>
+<dataDscr>
+<var ID="V1" name="year" files="F1" intrvl="discrete">
+  <varFormat type="numeric"/>
+  <location width="12"/>
+  <sumStat type="vald">400</sumStat>
+  <sumStat type="invd"/>
+  <sumStat type="min">2026</sumStat>
+  <sumStat type="max">2026</sumStat>
+</var>
+<var ID="V2" name="district" files="F1" intrvl="discrete">
+  <varFormat type="character"/>
+  <location width="-9"/>
+  <labl>District</labl>
+  <sumStat type="vald">400</sumStat>
+  <sumStat type="invd"/>
+</var>
+<var ID="V3" name="acct1" files="F1" intrvl="discrete">
+  <varFormat type="numeric"/>
+  <location width="12"/>
+  <labl>Has a current account</labl>
+  <qstn>
+    <qstnLit>A current account is an account at a bank or credit union that you can pay bills from and take cash out of on any day. Does anyone in this household have a current account at the moment?</qstnLit>
+  </qstn>
+  <sumStat type="vald">400</sumStat>
+  <sumStat type="invd"/>
+  <sumStat type="min">1</sumStat>
+  <sumStat type="max">4</sumStat>
+  <catgry>
+    <catValu>1</catValu>
+    <labl>Yes</labl>
+    <catStat type="freq">318</catStat>
+  </catgry>
+  <catgry>
+    <catValu>2</catValu>
+    <labl>No</labl>
+    <catStat type="freq">71</catStat>
+  </catgry>
+  <catgry>
+    <catValu>3</catValu>
+    <labl>Not sure</labl>
+    <catStat type="freq">7</catStat>
+  </catgry>
+  <catgry>
+    <catValu>4</catValu>
+    <labl>Would rather not say</labl>
+    <catStat type="freq">4</catStat>
+  </catgry>
+  <notes>Asked of every household. Codes 3 and 4 were not read out; the volunteer ticked them only when offered.</notes>
+</var>
+<var ID="V4" name="acct2" files="F1" intrvl="discrete">
+  <varFormat type="numeric"/>
+  <location width="12"/>
+  <labl>Looked at the balance on a phone in the last month</labl>
+  <qstn>
+    <qstnLit>Thinking about that account only: in the last month, has anyone in the household looked up the balance on a phone?</qstnLit>
+  </qstn>
+  <sumStat type="vald">318</sumStat>
+  <sumStat type="invd">82</sumStat>
+  <sumStat type="min">1</sumStat>
+  <sumStat type="max">3</sumStat>
+  <catgry>
+    <catValu>1</catValu>
+    <labl>Yes</labl>
+    <catStat type="freq">201</catStat>
+  </catgry>
+  <catgry>
+    <catValu>2</catValu>
+    <labl>No</labl>
+    <catStat type="freq">109</catStat>
+  </catgry>
+  <catgry>
+    <catValu>3</catValu>
+    <labl>Not sure</labl>
+    <catStat type="freq">8</catStat>
+  </catgry>
+  <catgry>
+    <catValu>4</catValu>
+    <labl>Would rather not say</labl>
+    <catStat type="freq">0</catStat>
+  </catgry>
+  <catgry>
+    <catValu>Sysmiss</catValu>
+  </catgry>
+  <notes>Asked only where acct1 is 1. Codes 3 and 4 were not read out; the volunteer ticked them only when offered.</notes>
+</var>
+<var ID="V5" name="acct3" files="F1" intrvl="discrete">
+  <varFormat type="numeric"/>
+  <location width="12"/>
+  <labl>Account was first opened because an employer or benefits office asked for one</labl>
+  <qstn>
+    <qstnLit>When the account was first opened, was that because an employer or a benefits office needed somewhere to pay money into?</qstnLit>
+  </qstn>
+  <sumStat type="vald">318</sumStat>
+  <sumStat type="invd">82</sumStat>
+  <sumStat type="min">1</sumStat>
+  <sumStat type="max">3</sumStat>
+  <catgry>
+    <catValu>1</catValu>
+    <labl>Yes</labl>
+    <catStat type="freq">187</catStat>
+  </catgry>
+  <catgry>
+    <catValu>2</catValu>
+    <labl>No</labl>
+    <catStat type="freq">112</catStat>
+  </catgry>
+  <catgry>
+    <catValu>3</catValu>
+    <labl>Not sure</labl>
+    <catStat type="freq">19</catStat>
+  </catgry>
+  <catgry>
+    <catValu>4</catValu>
+    <labl>Would rather not say</labl>
+    <catStat type="freq">0</catStat>
+  </catgry>
+  <catgry>
+    <catValu>Sysmiss</catValu>
+  </catgry>
+  <notes>Asked only where acct1 is 1. Codes 3 and 4 were not read out; the volunteer ticked them only when offered.</notes>
+</var>
+<var ID="V6" name="save1" files="F1" intrvl="discrete">
+  <varFormat type="numeric"/>
+  <location width="22"/>
+  <labl>How often money is put aside</labl>
+  <qstn>
+    <qstnLit>How often does the household manage to put some money aside, whether in an account, a savings club or a tin at home? Every week, every month, a few times a year, or hardly ever?</qstnLit>
+  </qstn>
+  <sumStat type="vald">400</sumStat>
+  <sumStat type="invd"/>
+  <sumStat type="min">1</sumStat>
+  <sumStat type="max">6</sumStat>
+  <catgry>
+    <catValu>1</catValu>
+    <labl>Every week</labl>
+    <catStat type="freq">54</catStat>
+  </catgry>
+  <catgry>
+    <catValu>2</catValu>
+    <labl>Every month</labl>
+    <catStat type="freq">131</catStat>
+  </catgry>
+  <catgry>
+    <catValu>3</catValu>
+    <labl>A few times a year</labl>
+    <catStat type="freq">107</catStat>
+  </catgry>
+  <catgry>
+    <catValu>4</catValu>
+    <labl>Hardly ever</labl>
+    <catStat type="freq">108</catStat>
+  </catgry>
+  <catgry>
+    <catValu>5</catValu>
+    <labl>Not sure</labl>
+  </catgry>
+  <catgry>
+    <catValu>6</catValu>
+    <labl>Would rather not say</labl>
+  </catgry>
+  <catgry>
+    <catValu>Sysmiss</catValu>
+  </catgry>
+  <notes>Asked of every household. Codes 5 and 6 were not read out.</notes>
+</var>
+<var ID="V7" name="save2" files="F1" intrvl="discrete">
+  <varFormat type="numeric"/>
+  <location width="22"/>
+  <labl>How often money put aside is dipped into</labl>
+  <qstn>
+    <qstnLit>And how often does the household have to dip into money it had put aside to cover an ordinary bill? Every week, every month, a few times a year, or hardly ever?</qstnLit>
+  </qstn>
+  <sumStat type="vald">292</sumStat>
+  <sumStat type="invd">108</sumStat>
+  <sumStat type="min">1</sumStat>
+  <sumStat type="max">6</sumStat>
+  <catgry>
+    <catValu>1</catValu>
+    <labl>Every week</labl>
+    <catStat type="freq">12</catStat>
+  </catgry>
+  <catgry>
+    <catValu>2</catValu>
+    <labl>Every month</labl>
+    <catStat type="freq">77</catStat>
+  </catgry>
+  <catgry>
+    <catValu>3</catValu>
+    <labl>A few times a year</labl>
+    <catStat type="freq">145</catStat>
+  </catgry>
+  <catgry>
+    <catValu>4</catValu>
+    <labl>Hardly ever</labl>
+    <catStat type="freq">58</catStat>
+  </catgry>
+  <catgry>
+    <catValu>5</catValu>
+    <labl>Not sure</labl>
+  </catgry>
+  <catgry>
+    <catValu>6</catValu>
+    <labl>Would rather not say</labl>
+  </catgry>
+  <catgry>
+    <catValu>Sysmiss</catValu>
+  </catgry>
+  <notes>Not asked where save1 is 4. Codes 5 and 6 were not read out.</notes>
+</var>
+<var ID="V8" name="cash1" files="F1" intrvl="discrete">
+  <varFormat type="numeric"/>
+  <location width="12"/>
+  <labl>Paid a household bill in cash in the last month</labl>
+  <qstn>
+    <qstnLit>In the last month, did the household pay any regular bill in notes and coins?</qstnLit>
+  </qstn>
+  <sumStat type="vald">400</sumStat>
+  <sumStat type="invd"/>
+  <sumStat type="min">1</sumStat>
+  <sumStat type="max">4</sumStat>
+  <catgry>
+    <catValu>1</catValu>
+    <labl>Yes</labl>
+    <catStat type="freq">163</catStat>
+  </catgry>
+  <catgry>
+    <catValu>2</catValu>
+    <labl>No</labl>
+    <catStat type="freq">229</catStat>
+  </catgry>
+  <catgry>
+    <catValu>3</catValu>
+    <labl>Not sure</labl>
+    <catStat type="freq">6</catStat>
+  </catgry>
+  <catgry>
+    <catValu>4</catValu>
+    <labl>Would rather not say</labl>
+    <catStat type="freq">2</catStat>
+  </catgry>
+  <catgry>
+    <catValu>Sysmiss</catValu>
+  </catgry>
+  <notes>Asked of every household.</notes>
+</var>
+</dataDscr>
+</codeBook>

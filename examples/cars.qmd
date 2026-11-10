@@ -1,0 +1,59 @@
+---
+title: "Car survey"
+format: html
+echo: false
+warning: false
+---
+
+```{r}
+library(surveydown)
+```
+
+--- welcome
+
+# Welcome
+
+This survey asks about your car.
+
+```{r}
+sd_question(
+  type  = 'mc',
+  id    = 'vehicle_ownership',
+  label = "Do you own a vehicle?",
+  option = c(
+    "Yes" = "yes",
+    "No"  = "no"
+  )
+)
+```
+
+--- cars
+
+```{r}
+sd_question(
+  type   = "matrix",
+  id     = "trip_frequency",
+  label  = "How often do you take the car for each kind of trip?",
+  row    = c(
+    "Getting to work or school" = "work_school",
+    "The weekly food shop"      = "food_shop"
+  ),
+  option = c(
+    "Never"     = "never",
+    "Some days" = "some_days",
+    "Most days" = "most_days"
+  )
+)
+
+sd_question(
+  type  = 'numeric',
+  id    = 'weekly_km',
+  label = "Roughly how many kilometres do you drive in a normal week?"
+)
+```
+
+--- end
+
+```{r}
+sd_close()
+```

@@ -1,0 +1,184 @@
+{
+  "id": "clx9onboard000001",
+  "name": "Onboarding feedback",
+  "type": "link",
+  "status": "inProgress",
+  "languages": [
+    {"language": {"id": "lng0en", "code": "en", "alias": null}, "default": true, "enabled": true},
+    {"language": {"id": "lng0de", "code": "de", "alias": null}, "default": false, "enabled": true}
+  ],
+  "welcomeCard": {
+    "enabled": true,
+    "headline": {"default": "Onboarding feedback", "de": "Feedback zum Onboarding"},
+    "subheader": {"default": "Two minutes, promise.", "de": "Nur zwei Minuten."},
+    "timeToFinish": true,
+    "showResponseCount": false
+  },
+  "hiddenFields": {"enabled": true, "fieldIds": ["plan"]},
+  "variables": [{"id": "var0score", "name": "score", "type": "number", "value": 0}],
+  "endings": [
+    {"id": "endthanks", "type": "endScreen", "headline": {"default": "Thanks!", "de": "Danke!"}}
+  ],
+  "blocks": [
+    {
+      "id": "blkrole",
+      "name": "Block 1",
+      "elements": [
+        {
+          "id": "role",
+          "type": "multipleChoiceSingle",
+          "headline": {"default": "What is your role?", "de": "Was ist Ihre Rolle?"},
+          "required": true,
+          "shuffleOption": "none",
+          "choices": [
+            {"id": "eng", "label": {"default": "Engineer", "de": "Ingenieur"}},
+            {"id": "pm", "label": {"default": "Product manager", "de": "Produktmanager"}},
+            {"id": "other", "label": {"default": "Other", "de": "Andere"}}
+          ]
+        }
+      ],
+      "logic": [
+        {
+          "id": "lgc1",
+          "conditions": {
+            "id": "grp1",
+            "connector": "and",
+            "conditions": [
+              {
+                "id": "cnd1",
+                "leftOperand": {"type": "element", "value": "role"},
+                "operator": "equals",
+                "rightOperand": {"type": "static", "value": "pm"}
+              }
+            ]
+          },
+          "actions": [{"id": "act1", "objective": "jumpToBlock", "target": "blkroadmap"}]
+        },
+        {
+          "id": "lgc2",
+          "conditions": {
+            "id": "grp2",
+            "connector": "and",
+            "conditions": [
+              {
+                "id": "cnd2",
+                "leftOperand": {"type": "hiddenField", "value": "plan"},
+                "operator": "equals",
+                "rightOperand": {"type": "static", "value": "free"}
+              }
+            ]
+          },
+          "actions": [
+            {"id": "act2", "objective": "calculate", "variableId": "var0score", "operator": "add", "value": {"type": "static", "value": 1}}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blkstack",
+      "name": "Your stack",
+      "elements": [
+        {
+          "id": "languages",
+          "type": "multipleChoiceMulti",
+          "headline": {"default": "Which languages do you use?", "de": "Welche Sprachen nutzen Sie?"},
+          "required": false,
+          "choices": [
+            {"id": "ts", "label": {"default": "TypeScript", "de": "TypeScript"}},
+            {"id": "py", "label": {"default": "Python", "de": "Python"}},
+            {"id": "go", "label": {"default": "Go", "de": "Go"}}
+          ]
+        },
+        {
+          "id": "setup_time",
+          "type": "openText",
+          "headline": {"default": "How many minutes did setup take?", "de": "Wie viele Minuten hat die Einrichtung gedauert?"},
+          "required": false,
+          "inputType": "number",
+          "charLimit": {"enabled": false},
+          "validation": {"rules": [{"id": "r1", "type": "minValue", "params": {"min": 0}}], "logic": "and"}
+        }
+      ]
+    },
+    {
+      "id": "blkroadmap",
+      "name": "Roadmap",
+      "elements": [
+        {
+          "id": "priorities",
+          "type": "ranking",
+          "headline": {"default": "Rank these for next quarter", "de": "Ordnen Sie diese für das nächste Quartal"},
+          "required": false,
+          "choices": [
+            {"id": "sso", "label": {"default": "SSO", "de": "SSO"}},
+            {"id": "api", "label": {"default": "Public API", "de": "Öffentliche API"}},
+            {"id": "mobile", "label": {"default": "Mobile app", "de": "Mobile App"}}
+          ]
+        },
+        {
+          "id": "ease",
+          "type": "rating",
+          "headline": {"default": "How easy was onboarding?", "de": "Wie einfach war das Onboarding?"},
+          "required": true,
+          "scale": "star",
+          "range": 5,
+          "lowerLabel": {"default": "Hard", "de": "Schwer"},
+          "upperLabel": {"default": "Easy", "de": "Einfach"}
+        },
+        {
+          "id": "nps",
+          "type": "nps",
+          "headline": {"default": "How likely are you to recommend us?", "de": "Wie wahrscheinlich empfehlen Sie uns weiter?"},
+          "required": true,
+          "lowerLabel": {"default": "Not likely", "de": "Unwahrscheinlich"},
+          "upperLabel": {"default": "Very likely", "de": "Sehr wahrscheinlich"}
+        }
+      ],
+      "logic": [
+        {
+          "id": "lgc3",
+          "conditions": {
+            "id": "grp3",
+            "connector": "or",
+            "conditions": [
+              {
+                "id": "cnd3",
+                "leftOperand": {"type": "element", "value": "nps"},
+                "operator": "isGreaterThanOrEqual",
+                "rightOperand": {"type": "static", "value": 9}
+              },
+              {
+                "id": "cnd4",
+                "leftOperand": {"type": "element", "value": "ease"},
+                "operator": "isSkipped"
+              }
+            ]
+          },
+          "actions": [{"id": "act3", "objective": "jumpToBlock", "target": "endthanks"}]
+        }
+      ]
+    },
+    {
+      "id": "blkwhy",
+      "name": "Follow-up",
+      "elements": [
+        {
+          "id": "why",
+          "type": "openText",
+          "headline": {"default": "What would make it a 10?", "de": "Was würde es zu einer 10 machen?"},
+          "required": false,
+          "inputType": "text",
+          "longAnswer": true,
+          "placeholder": {"default": "Tell us more", "de": "Erzählen Sie mehr"}
+        },
+        {
+          "id": "contact_ok",
+          "type": "consent",
+          "headline": {"default": "May we follow up?", "de": "Dürfen wir nachfragen?"},
+          "label": {"default": "Yes, you may email me", "de": "Ja, Sie dürfen mir schreiben"},
+          "required": false
+        }
+      ]
+    }
+  ]
+}
